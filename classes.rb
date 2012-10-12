@@ -18,14 +18,37 @@ class Person
   end
 end
 
-p = Person.new
+class Staff < Person
+  attr_accessor :position
+  attr_accessor :pay_grade
+  
+  def to_string
+   "#{full} is a #{position} at The Starter League."
+  end
+end
+
+class Student < Person
+  attr_accessor :section
+  
+  def to_string
+    full + " is a student in the " + section + " section."
+  end
+  
+  def full
+    "#{last}, #{first}"
+  end
+  
+end
+
+p = Staff.new
 p.first = "Raghu"
 p.last = "Betina"
-p.hometown = "Goshen"
+p.position = "teacher"
 
-puts p.full
+q = Staff.new
+q.first = "Jeff"
+q.last = "Cohen"
+q.position = "Chief Instructor"
 
-
-
-
-
+puts q.to_string
+puts p.to_string
